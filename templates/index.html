@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="static/styles/index.css">
+        <link rel="shortcut icon" href="/static/icon.ico">
+        <title>RestoreMemorys</title>
+    </head>
+    <body>
+        <div class="infoContainer" id="resettInfoContainer">
+            <div class="warningText">
+                This will delete your restored memeory from the server. Are you sure you want to go on?
+            </div>
+            <form action="/resettMemory">
+                <button type="submit" class="doResettBtn"><div class="warningBtnText">Delete & Resett</div></button>
+            </form>
+            <form>
+                <button type="button" class="closeInfoContainerBtn" id="closeInfoContainerBtn"><div class="btnText">Back</div></button>
+            </form>
+            <div class="info" style="width: 60%;margin-left: 20%;text-align: justify;color: rgb(228, 55, 150);">
+                You can restore another memory if you delete your current memory. You can now go back if you want to save your current memory
+            </div>
+        </div>
+        {%if uploadedImage == False%}
+        <div class="top">
+            <div class="text">
+                Restore A Memory
+            </div>
+        </div>
+        <div class="upload">
+            <form id="uploadImage" action="/uploadImage" enctype=multipart/form-data method="post">
+                <label for="file-upload" class="custom-file-upload">
+                    <div class="btnText">Choose Memory</div>
+                </label>
+                <input id="file-upload" type="file", name="image"/>
+                <button type="submit" class="uploadImageBtn"><div class="btnText">Upload</div></button>
+            </form>
+        </div>
+        <div class="exampleContainer">
+            <div class="exampleText">
+                What the result will look like
+            </div>
+            <div class="exampleImages">
+                <div class="left">
+                    <div class="imageTitle">
+                        Original
+                    </div>
+                    <img class="exampleImg" src="/static/images/original.jpg">
+                </div>
+                <div class="right">
+                    <div class="imageTitle">
+                        Result
+                    </div>
+                    <img class="exampleImg" src="/static/images/restored.jpg">
+                </div>
+            </div>
+            <div class="howtoText">
+                You choose and upload an image you want to be upscaled by the ai. Then you can download your fresh image &#129498;
+            </div>
+        </div>
+        {%endif%}
+        {%if uploadedImage == True%}
+        <div class="resultPreview">
+            <div class="title">&#128142;Your faded memory&#128142;</div>
+            <div class="uploadedImage">
+                
+                <img src="{{imagePath}}">
+            </div>
+        
+            <form action="/restoreMemory" method="post">
+                {%if disableRestoreMemory == False%}
+                <button type="submit" class="restoreMemoryBtn" id="restoreMemoryBtn"><div class="btnText">Restore Memory &#129498;</div></button>
+                {%endif%}
+                {%if disableRestoreMemory == True%}
+                <br><br>
+                {%endif%}
+            </form>
+            {%if result == True%}
+            <div class="title">&#129498;Your restored memory&#129498;</div>
+            {%endif%}
+            <div class="resultImage">
+                {%if result == True%}
+                <a href="{{resultImagePath}}"><img src="{{resultImagePath}}"></a>
+                {%endif%}
+            </div>
+            {%if result == True%}
+            <div class="info">Click on the image to save it</div>
+            {%endif%}
+        </div>
+        {%if result == True%}
+        <div class="resettContainer">
+            <div class="info">Restore another memory?</div>
+            <form>
+                <button type="button" class="resettBtn" id="resettInfoBtn"><div class="btnText">Resett</div></button>
+            </form>
+        </div>
+        {%endif%}
+        {%endif%}
+    </body>
+    <div class="bg"></div>
+    <div class="star-field">
+    <div class="layer"><h1></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <script src="/static/js/index.js"></script>
+</html>
