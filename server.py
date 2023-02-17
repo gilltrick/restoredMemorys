@@ -79,9 +79,10 @@ def clear_folder(dir):
 def CreateRandomId():
     return hashlib.md5(str(datetime.datetime.now()).encode()).hexdigest()
 
-server.route("/downloadAiFiles")
+
+@server.route("/downloadAiFiles", methods=["get"])
 def downloadAiFiles():
-    send_file(os.getcwd()+"/static/downloadableAiFles/ai.7z")
+    return send_file(os.getcwd()+"/static/downloadableAiFiles/ai.7z")
 
 if __name__ == "__main__":
     server.run(debug=True, host="0.0.0.0", port=4747)
