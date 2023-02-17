@@ -2,3 +2,5 @@ ai/
 gfpgan/
 static/results/
 static/uploadedImages/
+static/downloadableAiFiles/ai.7z
+ai.7z
