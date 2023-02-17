@@ -1,2 +1,4 @@
-ai
-gfpgan
+ai/
+gfpgan/
+static/results/
+static/uploadedImages/
