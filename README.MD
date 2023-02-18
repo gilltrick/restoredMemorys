@@ -4,7 +4,7 @@
 ```
 python setup.py
 ```
-### The app will star when the setup is completed
+### &nbsp;The app will star when the setup is completed
 
 ## After the AI is set up run the application
 ```
