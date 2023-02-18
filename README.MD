@@ -3,7 +3,9 @@
 ## You need to download the AI
 ```
 python setup.py
-# The app will star when the setup is completed
+# The app will start when the setup is completed
+# Visit your application
+# http://localhost:4747
 ```
 
 
