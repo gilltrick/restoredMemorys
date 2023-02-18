@@ -33,7 +33,8 @@
 
 html{
 
-    background: linear-gradient(115deg, rgb(144, 210, 236) 20%, rgb(247, 148, 238) 80%);
+    /* background: linear-gradient(115deg, rgb(144, 210, 236) 20%, rgb(247, 148, 238) 80%); */
+    background: linear-gradient(115deg, rgb(10, 38, 49) 20%, rgb(63, 10, 59) 80%);
     background-attachment: fixed;
 }
 
@@ -77,12 +78,18 @@ form{
     border-radius: 12px;
     color: white;
     background-color: rgb(233, 19, 55);
-    border: 2px solid black;
     text-align: center;
     font-size: 24px;
     font-weight: bolder;
-    box-shadow: 2px 3px 5px black;
+    /* border: 2px solid black;
+    box-shadow: 2px 3px 5px black; */
+    border: 2px solid rgb(252, 251, 251);
+    box-shadow: 2px 3px 5px rgb(252, 250, 250);
+}
 
+.uploadImageBtn:hover{
+
+    background-color: rgb(37, 233, 19);
 }
 
 input[type="file"] {
@@ -98,8 +105,16 @@ input[type="file"] {
     border-radius: 12px;
     color: white;
     background-color: rgb(11, 150, 243);
-    border: 2px solid black;
-    box-shadow: 2px 3px 5px black;
+    /* border: 2px solid black;
+    box-shadow: 2px 3px 5px black; */
+    border: 2px solid rgb(245, 242, 242);
+    box-shadow: 2px 3px 5px rgb(250, 248, 248);
+}
+
+.custom-file-upload:hover {
+
+    background-color: rgb(243, 11, 185);
+
 }
 
 .btnText{
@@ -177,8 +192,10 @@ input[type="file"] {
     max-height: 30vh;
     width: auto;
     border-radius: 4px;
-    border: 3px solid black;
-    box-shadow: 2px 3px 5px #161616b2;
+    /* border: 3px solid black;
+    box-shadow: 2px 3px 5px #161616b2; */
+    border: 3px solid rgb(236, 234, 234);
+    box-shadow: 2px 3px 5px #f5f4f4b2;
 }
 
 img{
@@ -218,7 +235,6 @@ img{
     width: 90%;
 }
 
-
 .info{
 
     font-size: 32px;
@@ -230,14 +246,17 @@ img{
     margin-bottom: 1%;
     width: 90%;
 }
+
 .resultPreview .uploadedImage img{
 
-    height: 100%;
+    height: 98%;
     width: auto;
     margin: auto;
     border-radius: 4px;
-    border: 2px solid black;
-    box-shadow: 2px 3px 5px #161616b2;
+    /* border: 2px solid black;
+    box-shadow: 2px 3px 5px #161616b2; */
+    border: 2px solid rgb(252, 251, 251);
+    box-shadow: 2px 3px 5px #fdfdfdb2;
 }
 
 .restoreMemoryBtn{
@@ -252,7 +271,10 @@ img{
     text-align: center;
     font-size: 24px;
     font-weight: bolder;
-    box-shadow: 2px 3px 5px black;
+    /* border: 2px solid black;
+    box-shadow: 2px 3px 5px black; */
+    border: 2px solid rgb(252, 251, 251);
+    box-shadow: 2px 3px 5px rgb(253, 253, 253);
 }
 
 .restoreMemoryBtn:hover{
@@ -269,14 +291,25 @@ img{
     margin: auto;
 }
 
+
 .resultPreview .resultImage img{
 
-    height: 100%;
+    height: 98%;
     width: auto;
     margin: auto;
     border-radius: 4px;
     border: 2px solid black;
     box-shadow: 2px 3px 5px #161616b2;
+}
+
+.resultPreview .resultImage img:hover{
+
+    height: 100%;
+    width: auto;
+    margin: auto;
+    border-radius: 4px;
+    border: 2px solid rgb(60, 142, 236);
+    box-shadow: 2px 3px 5px #7cbbe0b2;
 }
 
 .resettContainer{
@@ -305,16 +338,18 @@ img{
     border-radius: 12px;
     color: white;
     background-color: rgb(233, 19, 55);
-    border: 2px solid black;
     text-align: center;
     font-size: 24px;
     font-weight: bolder;
-    box-shadow: 2px 3px 5px black;
+    border: 2px solid rgb(252, 251, 251);
+    box-shadow: 2px 3px 5px rgb(252, 250, 250);
 }
 
 .resettBtn:hover{
 
-    background-color: rgb(245, 7, 46);
+    background-color: rgb(100, 4, 87);
+    border: 2px solid rgb(245, 155, 214);
+    box-shadow: 2px 3px 5px rgb(243, 244, 245);
 }
 
 .doResettBtn{
@@ -361,7 +396,7 @@ img{
 
 .warningText{
 
-    font-size: 60px;
+    font-size: 54px;
     color: rgb(226, 43, 43);
     text-align: justify;
     text-shadow: 0px 0px 8px #ffffff;
@@ -399,6 +434,105 @@ img{
     height: 100%;
     width: 100%;
 }
+
+.processingInfo{
+
+    font-size: 36px;
+    color: rgb(236, 41, 106);
+    text-align: center;
+    text-shadow: 2px 3px 5px #161616b2;
+    margin: auto;
+    margin-top:12%;
+    margin-bottom: 1%;
+    width: 90%;
+
+}
+
+.credits{
+
+    height: 8%;
+    width: 100%;
+    display: flexbox;
+    align-items: center;
+    align-content: space-evenly;
+}
+
+.creditsTitle{
+    font-size: 36px;
+    color: rgb(241, 238, 239);
+    text-align: center;
+    text-shadow: 2px 3px 5px #161616b2;
+    margin: auto;
+    width: 100%;
+}
+
+.creditsSocial{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.socialLink{
+    text-decoration: none;
+    display: flex;
+    margin: auto;
+}
+
+.socialBtn{
+    display: flex;
+    height: 25%;
+    width: auto;
+    font-size: 20px;
+    background-color: transparent;
+    border:3px solid black;
+    border-radius: 4px;
+    padding:1%;
+}
+
+.socialBtnText{
+
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.socialImg{
+
+    height: auto;
+    width: 40px;
+    padding: 1%;
+}
+
+.copyrightContainer{
+
+    display: flex;
+}
+
+.copyrightText{
+    width: 49%;
+    margin: auto;
+    margin-right:1%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.impressumsLink{
+
+    width: 49%;
+    text-align: left;
+    margin: auto;
+    margin-left:1%
+}
+
+
+
 
 .lds-spinner {
     position: absolute;
@@ -479,10 +613,6 @@ img{
       opacity: 0;
     }
   }
-
-
-
-
 
 
 @keyframes sf-fly-by-1 {
