@@ -22,7 +22,7 @@
         {%if uploadedImage == False%}
         <div class="top">
             <div class="text">
-                Restore A Memory
+                Restore Memory
             </div>
         </div>
         <div class="upload">
@@ -53,11 +53,15 @@
                 </div>
             </div>
             <div class="howtoText">
-                You choose and upload an image you want to be upscaled by the ai. Then you can download your fresh image &#129498;
+                You choose and upload an image you want to be upscaled by the AI. Then you can download your fresh image &#129498;
             </div>
         </div>
         {%endif%}
         {%if uploadedImage == True%}
+        <div class="loadAnimation", id="loadAnimationContainer">
+            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div class="info" style="margin-top:12%;">Processing image</div>
+        </div>
         <div class="resultPreview">
             <div class="title">&#128142;Your faded memory&#128142;</div>
             <div class="uploadedImage">
