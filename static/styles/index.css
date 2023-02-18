@@ -33,7 +33,7 @@
 
 html{
 
-    background: linear-gradient(115deg, rgb(212, 234, 243) 20%, rgb(250, 200, 246) 80%);
+    background: linear-gradient(115deg, rgb(144, 210, 236) 20%, rgb(247, 148, 238) 80%);
     background-attachment: fixed;
 }
 
@@ -42,7 +42,7 @@ html{
 	display: flex;
 	align-items: center;
     height: 15%;
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -112,7 +112,7 @@ input[type="file"] {
 
 .exampleContainer{
     display: block;
-    height: 30%;
+    height: 70%;
     width: 90%;
     margin: auto;
 }
@@ -135,7 +135,7 @@ input[type="file"] {
     width: 90%;
     text-align: justify;
     font-size: 46;
-    color: rgb(161, 199, 243);
+    color: rgb(227, 246, 253);
     text-shadow: 2px 2px 4px rgb(129, 181, 240);
     
 }
@@ -144,18 +144,21 @@ input[type="file"] {
     
     display: flex;
     height: auto;
+    width: auto;
 }
 .exampleContainer .exampleImages .left{
     display: block;
+    align-items: center;
     height: 90%;
-    width: 40%;
+    width: auto;
     margin: auto;
 }
 
 .exampleContainer .exampleImages .right{
     display: block;
+    align-items: center;
     height: 90%;
-    width: 40%;
+    width: auto;
     margin: auto;
 }
 
@@ -171,9 +174,10 @@ input[type="file"] {
 .exampleImg{
 
     height: 100%;
-    width: 100%;
+    max-height: 30vh;
+    width: auto;
     border-radius: 4px;
-    border: 2px solid black;
+    border: 3px solid black;
     box-shadow: 2px 3px 5px #161616b2;
 }
 
@@ -185,9 +189,11 @@ img{
 
 .resultPreview{
     display: block;
-    height: 80%;
+    height: 75%;
     width: 90%;
     margin: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     
 }
 
@@ -277,13 +283,16 @@ img{
 
     display: block;
     align-items: center;
-    height: 10%;
+    height: 15%;
     margin: auto;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }
 
 .resettContainer form{
 
     width: 90%;
+    height: 60%;
     margin: auto;
 }
 
