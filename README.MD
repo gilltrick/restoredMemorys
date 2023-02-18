@@ -8,3 +8,7 @@ python setup.py
 ```
 python server.py
 ```
+## Visit your application
+```
+http://localhost:4747
+```
