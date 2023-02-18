@@ -218,7 +218,6 @@ img{
     width: 90%;
 }
 
-
 .info{
 
     font-size: 32px;
@@ -230,6 +229,7 @@ img{
     margin-bottom: 1%;
     width: 90%;
 }
+
 .resultPreview .uploadedImage img{
 
     height: 100%;
@@ -398,6 +398,19 @@ img{
     align-items: center;
     height: 100%;
     width: 100%;
+}
+
+.processingInfo{
+
+    font-size: 36px;
+    color: rgb(236, 41, 106);
+    text-align: center;
+    text-shadow: 2px 3px 5px #161616b2;
+    margin: auto;
+    margin-top:12%;
+    margin-bottom: 1%;
+    width: 90%;
+
 }
 
 .lds-spinner {
