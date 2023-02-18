@@ -3,6 +3,7 @@ import re, base64, os, time, hashlib, datetime
 
 
 server = Flask(__name__)
+acceptedFileExtensions = {"jpg", "png"}
 
 @server.route("/")
 def index():
@@ -31,10 +32,11 @@ def uploadImage():
         response = make_response(render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg"))
         response.set_cookie("data", id)
         imageFile = request.files["image"]
-        if imageFile.filename == "":
-            return render_template("index.html", result=False, uploadedImage = False)
-        imageFile.save(os.getcwd()+path+id+".jpg")
-        return response
+        fileExtension = re.search("(.{3})\s*$", imageFile.filename)
+        if fileExtension.group(1) in acceptedFileExtensions:
+            imageFile.save(os.getcwd()+path+id+".jpg")
+            return response
+        return "<script>alert(\"You have to choose an image file like jpg or png\");location.href = \"/\";</script>"
 
 @server.route("/restoreMemory", methods=["post"])
 def restoreMemroy():
