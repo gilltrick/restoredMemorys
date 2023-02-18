@@ -5,7 +5,7 @@
 python setup.py
 ```
 ### The app will star when the setup is completed
-<br>
+
 ## After the AI is set up run the application
 ```
 python server.py
