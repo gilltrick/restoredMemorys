@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, make_response, send_file
 import re, base64, os, time, hashlib, datetime
 
-sourceFolder = os.getcwd()+"/sourceFolder/"
-resultFolder = os.getcwd()+"/resultFolder/"
 
 server = Flask(__name__)
 
@@ -14,7 +12,6 @@ def index():
             if os.path.isfile(os.getcwd()+"/static/results/"+id+"/restored_imgs/"+id+".jpg"):
                 return render_template("index.html", disableRestoreMemory=True, result=True, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg", resultImagePath="/static/results/"+id+"/restored_imgs/"+id+".jpg")
             if os.path.isfile(os.getcwd()+"/static/uploadedImages/"+id+".jpg"):
-                print("hello")
                 return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg")
             else:
                 return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg")
@@ -26,15 +23,16 @@ def uploadImage():
     path = "/static/uploadedImages/"
     try:
         id = request.cookies["data"]
-        if os.path.isfile(os.getcwd()+"/static/uploadedImages/"+id+".jpg"):
+        if os.path.isfile(os.getcwd()+path+id+".jpg"):
             return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg")
         return render_template("index.html", result=False, uploadedImage = False)
     except:
-        print("ausrede")
         id = CreateRandomId()
         response = make_response(render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg"))
         response.set_cookie("data", id)
         imageFile = request.files["image"]
+        if imageFile.filename == "":
+            return render_template("index.html", result=False, uploadedImage = False)
         imageFile.save(os.getcwd()+path+id+".jpg")
         return response
 
@@ -79,10 +77,13 @@ def clear_folder(dir):
 def CreateRandomId():
     return hashlib.md5(str(datetime.datetime.now()).encode()).hexdigest()
 
-
 @server.route("/downloadAiFiles", methods=["get"])
 def downloadAiFiles():
     return send_file(os.getcwd()+"/static/downloadableAiFiles/ai.7z")
+
+@server.route("/impressum", methods=["get"])
+def impressum():
+    return render_template("impressum.html")
 
 if __name__ == "__main__":
     server.run(debug=True, host="0.0.0.0", port=4747)
