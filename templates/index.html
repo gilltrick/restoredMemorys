@@ -5,12 +5,25 @@
         <title>RestoreMemorys</title>
     </head>
     <body>
-        <div class="infoContainer" id="resettInfoContainer">
+        {%if unknownUser == True%}
+        <div class="cookieInfoContainer" id="cookieInfoContainer"> 
+            <div class="cookieWarningText">
+                This site uses cookies to work. And stores your uploaded file up to one hour if you don't delete it yourself.
+            </div>
+            <form>
+                <button type="button" class="cookieInfoContainerBtn" id="cookieInfoContainerBtn"><div class="btnText">Accept</div></button>
+            </form>
+            <div class="cookieInfoText" style="width: 60%;margin-left: 20%;text-align: justify;color: rgb(228, 55, 150);">
+                Get more infos about the cookie policy <a href="https://github.com/gilltrick/restoredMemorys" target="blank">here</a>
+            </div>
+        </div>
+        {%endif%}
+        <div class="infoContainer" id="resetInfoContainer">
             <div class="warningText">
                 This will delete your restored memeory from the server. Are you sure you want to go on?
             </div>
-            <form action="/resettMemory">
-                <button type="submit" class="doResettBtn"><div class="warningBtnText">Delete & Resett</div></button>
+            <form action="/resetMemory">
+                <button type="submit" class="doResetBtn"><div class="warningBtnText">Delete & Reset</div></button>
             </form>
             <form>
                 <button type="button" class="closeInfoContainerBtn" id="closeInfoContainerBtn"><div class="btnText">Back</div></button>
@@ -31,7 +44,7 @@
                     <div class="btnText">Choose Memory</div>
                 </label>
                 <input id="file-upload" type="file", name="image"/>
-                <button type="submit" class="uploadImageBtn"><div class="btnText">Upload</div></button>
+                <button hidden type="submit" class="uploadImageBtn" id="uploadImageBtn"><div class="btnText">Upload</div></button>
             </form>
         </div>
         <div class="exampleContainer">
@@ -52,8 +65,9 @@
                     <img class="exampleImg" src="/static/images/restored.jpg">
                 </div>
             </div>
-            <div class="howtoText">
-                You choose and upload an image you want to be upscaled by the AI. Then you can download your fresh image &#129498;
+            <div class="howToText">
+                You choose and upload an image you want to be upscaled by the AI. Then you can download your fresh image &#129498;<br>
+                The file you upload get deleted from the server after a 60 minutes or when you <a href="/resetMemory" class="howToTextLink">reset</a> your work.
             </div>
         </div>
         {%endif%}
@@ -65,18 +79,19 @@
         <div class="resultPreview">
             <div class="title">&#128142;Your faded memory&#128142;</div>
             <div class="uploadedImage">
-                
                 <img src="{{imagePath}}">
             </div>
-        
+            {%if disableRestoreMemory == False%}
             <form action="/restoreMemory" method="post">
-                {%if disableRestoreMemory == False%}
                 <button type="submit" class="restoreMemoryBtn" id="restoreMemoryBtn"><div class="btnText">Restore Memory &#129498;</div></button>
-                {%endif%}
-                {%if disableRestoreMemory == True%}
-                <br><br>
-                {%endif%}
             </form>
+            <form action="/resetMemory">
+                <button type="submit" class="deleteImgBtn" id="restoreMemoryBtn"><div class="btnText" style="font-size: 18px;">Delete image</div></button>
+            </form>
+            {%endif%}
+            {%if disableRestoreMemory == True%}
+            <br><br>
+            {%endif%}
             {%if result == True%}
             <div class="title">&#129498;Your restored memory&#129498;</div>
             {%endif%}
@@ -90,15 +105,15 @@
             {%endif%}
         </div>
         {%if result == True%}
-        <div class="resettContainer">
+        <div class="resetContainer">
             <div class="info">Restore another memory?</div>
             <form>
-                <button type="button" class="resettBtn" id="resettInfoBtn"><div class="btnText">Resett</div></button>
+                <button type="button" class="resetBtn" id="resetInfoBtn"><div class="btnText">Reset</div></button>
             </form>
         </div>
         {%endif%}
         {%endif%}
-        <div class="credits">
+        <div class="credits" {%if isx%}style="position: fixed; bottom: 0;"{%endif%}>
             <div class="creditsTitle">
                 gilltrick.DE
             </div>

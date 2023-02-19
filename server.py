@@ -1,26 +1,40 @@
-from flask import Flask, render_template, request, make_response, send_file
+from flask import Flask, render_template, request, make_response, send_file, redirect
 import re, base64, os, time, hashlib, datetime
 
 
 server = Flask(__name__)
-acceptedFileExtensions = {"jpg", "peg", "png"}
+acceptedFileExtensions = ["jpg", "peg", "ebp", "fif", "png"]
+userIdList = []
 
 @server.route("/")
 def index():
     try:
         id = request.cookies["data"]
-        if id != "":
+        if id != "" and id in userIdList:
             if os.path.isfile(os.getcwd()+"/static/results/"+id+"/restored_imgs/"+id+".jpg"):
                 return render_template("index.html", disableRestoreMemory=True, result=True, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg", resultImagePath="/static/results/"+id+"/restored_imgs/"+id+".jpg")
             if os.path.isfile(os.getcwd()+"/static/uploadedImages/"+id+".jpg"):
-                return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg")
+                return render_template("index.html", isx=True, disableRestoreMemory=False, result=False, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg")
             else:
-                return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg")
+                response = make_response(render_template("index.html", disableRestoreMemory=True, result=False, uploadedImage = False))
+                response.set_cookie("data", '', expires=0)
+                return response
+        if id != "" and id not in userIdList:
+            print(f"Ich sollte nach Daten für {id} schauen")
+            response = make_response(render_template("index.html", disableRestoreMemory=True, result=False, uploadedImage = False))
+            response.set_cookie("data", '', expires=0)
+            return response
     except:
-        return render_template("index.html", result=False, uploadedImage = False)
+        try:
+            rememberMe = request.cookies["rememberMe"]
+            return render_template("index.html", unknownUser=False, result=False, uploadedImage = False)
+        except:
+            return render_template("index.html", unknownUser=True, result=False, uploadedImage = False)
 
-@server.route("/uploadImage", methods=["post"])
+@server.route("/uploadImage", methods=["post", "get"])
 def uploadImage():
+    if request.method != "POST":
+        return "<script>alert(\"Upsi something went wrong\");location.href = \"/\";</script>"
     path = "/static/uploadedImages/"
     try:
         id = request.cookies["data"]
@@ -29,8 +43,9 @@ def uploadImage():
         return render_template("index.html", result=False, uploadedImage = False)
     except:
         id = CreateRandomId()
-        response = make_response(render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg"))
-        response.set_cookie("data", id)
+        userIdList.append(id)
+        response = make_response(render_template("index.html", isx=True, disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg"))
+        response.set_cookie("data", id, max_age=60 * 60 * 1)
         imageFile = request.files["image"]
         print(imageFile.filename)
         fileExtension = re.search("(.{3})\s*$", imageFile.filename)
@@ -48,8 +63,8 @@ def restoreMemroy():
     os.system(command)
     return render_template("index.html", disableRestoreMemory=True, result=True, uploadedImage = True, imagePath="/static/uploadedImages/"+id+".jpg", resultImagePath="/static/results/"+id+"/restored_imgs/"+id+".jpg")    
 
-@server.route("/resettMemory")
-def resettMemory():
+@server.route("/resetMemory")
+def resetMemory():
     try:
         id = request.cookies["data"]
         cmd_deleteUploadedImage = f"del {os.getcwd()}\\static\\uploadedImages\\{id}.jpg"

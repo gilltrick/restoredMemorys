@@ -6,7 +6,6 @@
 @font-face {
     font-family:"TSBlockBold";
     src: url("./fonts/TSBlockBold.ttf") format("truetype");
-    
 }
 
 
@@ -39,7 +38,6 @@ html{
 }
 
 .top{
-
 	display: flex;
 	align-items: center;
     height: 15%;
@@ -48,7 +46,6 @@ html{
 }
 
 .top .text{
-
     margin: auto;
     font-size: 120;
     color: rgb(238, 13, 107);
@@ -57,21 +54,18 @@ html{
 }
 
 .upload{
-
     height: 15%;
     display: flex;
     align-items: center;
 }
 
 form{
-
     display: flex;
     width: 90%;
     margin-left: 5%;
 }
 
 .uploadImageBtn{
-
     margin-left: 1%;
     width: 45%;
     height: 60px;
@@ -88,7 +82,6 @@ form{
 }
 
 .uploadImageBtn:hover{
-
     background-color: rgb(37, 233, 19);
 }
 
@@ -99,9 +92,9 @@ input[type="file"] {
 .custom-file-upload {
     display: flex;
     align-items: center;
-    margin-left: 1%;
-    width: 45%;
-    height: 60px;
+    margin-left: 5%;
+    width: 90%;
+    height: 100px;
     border-radius: 12px;
     color: white;
     background-color: rgb(11, 150, 243);
@@ -112,9 +105,7 @@ input[type="file"] {
 }
 
 .custom-file-upload:hover {
-
     background-color: rgb(243, 11, 185);
-
 }
 
 .btnText{
@@ -127,13 +118,12 @@ input[type="file"] {
 
 .exampleContainer{
     display: block;
-    height: 70%;
+    height: 75%;
     width: 90%;
     margin: auto;
 }
 
 .exampleContainer .exampleText{
-
     margin: auto;
     text-align: center;
     font-size: 75;
@@ -142,8 +132,7 @@ input[type="file"] {
     font-family: "SimpleThread";
 }
 
-.exampleContainer .howtoText{
-
+.exampleContainer .howToText{
     margin: auto;
     margin-top:2%;
     height: 25%;
@@ -152,11 +141,21 @@ input[type="file"] {
     font-size: 46;
     color: rgb(227, 246, 253);
     text-shadow: 2px 2px 4px rgb(129, 181, 240);
-    
+}
+
+.exampleContainer .howToText .howToTextLink{
+    text-decoration: none;
+    margin: auto;
+    margin-top:2%;
+    height: 25%;
+    width: 90%;
+    text-align: justify;
+    font-size: 46;
+    color: rgb(236, 56, 140);
+    text-shadow: 2px 2px 4px rgb(129, 181, 240);
 }
 
 .exampleContainer .exampleImages{
-    
     display: flex;
     height: auto;
     width: auto;
@@ -178,7 +177,6 @@ input[type="file"] {
 }
 
 .exampleContainer .imageTitle{
-
     font-size: 44px;
     color: rgb(226, 206, 206);
     text-align: center;
@@ -187,7 +185,6 @@ input[type="file"] {
 }
 
 .exampleImg{
-
     height: 100%;
     max-height: 30vh;
     width: auto;
@@ -199,7 +196,6 @@ input[type="file"] {
 }
 
 img{
-
     height: 100%;
     width: 100%;
 }
@@ -224,7 +220,6 @@ img{
 }
 
 .resultPreview .title{
-
     font-size: 44px;
     color: rgb(226, 206, 206);
     text-align: center;
@@ -236,7 +231,6 @@ img{
 }
 
 .info{
-
     font-size: 32px;
     color: rgb(160, 173, 235);
     text-align: center;
@@ -278,8 +272,30 @@ img{
 }
 
 .restoreMemoryBtn:hover{
-
     background-color: rgb(233, 19, 151);
+}
+
+.deleteImgBtn{
+    margin:2%;
+    margin-left: 20%;
+    width: 60%;
+    height: 60px;
+    border-radius: 12px;
+    color: white;
+    background-color: rgb(172, 19, 233);
+    border: 2px solid black;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    /* border: 2px solid black;
+    box-shadow: 2px 3px 5px black; */
+    border: 2px solid rgb(252, 251, 251);
+    box-shadow: 2px 3px 5px rgb(253, 253, 253);
+
+}
+
+.deleteImgBtn:hover{
+    background-color: rgb(233, 19, 48);
 }
 
 .resultPreview .resultImage{
@@ -293,7 +309,6 @@ img{
 
 
 .resultPreview .resultImage img{
-
     height: 98%;
     width: auto;
     margin: auto;
@@ -303,7 +318,6 @@ img{
 }
 
 .resultPreview .resultImage img:hover{
-
     height: 100%;
     width: auto;
     margin: auto;
@@ -312,8 +326,7 @@ img{
     box-shadow: 2px 3px 5px #7cbbe0b2;
 }
 
-.resettContainer{
-
+.resetContainer{
     display: block;
     align-items: center;
     height: 15%;
@@ -322,15 +335,13 @@ img{
     margin-bottom: 2.5%;
 }
 
-.resettContainer form{
-
+.resetContainer form{
     width: 90%;
     height: 60%;
     margin: auto;
 }
 
-.resettBtn{
-
+.resetBtn{
     margin: auto;
     margin-top: 1%;
     width: 70%;
@@ -345,15 +356,13 @@ img{
     box-shadow: 2px 3px 5px rgb(252, 250, 250);
 }
 
-.resettBtn:hover{
-
+.resetBtn:hover{
     background-color: rgb(100, 4, 87);
     border: 2px solid rgb(245, 155, 214);
     box-shadow: 2px 3px 5px rgb(243, 244, 245);
 }
 
-.doResettBtn{
-
+.doResetBtn{
     margin: auto;
     margin-top: 1%;
     width: 80%;
@@ -368,13 +377,11 @@ img{
     box-shadow: 2px 3px 5px black;
 }
 
-.doResettBtn:hover{
-
+.doResetBtn:hover{
     background-color: rgb(233, 19, 73);
 }
 
 .closeInfoContainerBtn{
-
     margin: auto;
     margin-top: 1%;
     width: 80%;
@@ -390,12 +397,10 @@ img{
 }
 
 .closeInfoContainerBtn:hover{
-
     background-color: rgb(226, 29, 210);
 }
 
 .warningText{
-
     font-size: 54px;
     color: rgb(226, 43, 43);
     text-align: justify;
@@ -408,7 +413,6 @@ img{
 }
 
 .warningBtnText{
-
     margin: auto;
     text-align: center;
     font-size: 80px;
@@ -427,6 +431,84 @@ img{
     background-color: rgba(255, 255, 255, 0.863);
 }
 
+
+.closeInfoContainerBtn{
+    margin: auto;
+    margin-top: 1%;
+    width: 80%;
+    height: 80px;
+    border-radius: 12px;
+    color: white;
+    background-color: rgb(174, 196, 211);
+    border: 2px solid black;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bolder;
+    box-shadow: 2px 3px 5px black;
+}
+
+.closeInfoContainerBtn:hover{
+    background-color: rgb(226, 29, 210);
+}
+
+
+
+.cookieInfoContainer{
+
+    border: 2px solid black;
+    border-radius: 8px;
+    display: block;
+    position: absolute;
+    margin-left:5%;
+    margin-top: 16%;
+    width: 90%;
+    height: 20%;
+    background-color: rgba(255, 255, 255, 0.863);
+}
+
+.cookieWarningText{
+    font-size: 28px;
+    color: rgb(226, 43, 43);
+    text-align: justify;
+    text-shadow: 0px 0px 8px #ffffff;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 90%;
+    font-family:"TSBlockBold";
+}
+
+
+.cookieInfoContainerBtn{
+    margin: auto;
+    margin-top: 1%;
+    width: 80%;
+    height: 80px;
+    border-radius: 12px;
+    color: white;
+    background-color: rgb(48, 187, 117);
+    border: 2px solid black;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bolder;
+    box-shadow: 2px 3px 5px black;
+}
+.cookieInfoContainerBtn:hover{
+
+    background-color: rgb(8, 247, 87);
+}
+
+.cookieInfoText{
+    font-size: 24px;
+    color: rgb(160, 173, 235);
+    text-align: center;
+    text-shadow: 2px 3px 5px #161616b2;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 90%;
+}
+
 .loadAnimation{
     position: absolute;
     display: none;
@@ -436,7 +518,6 @@ img{
 }
 
 .processingInfo{
-
     font-size: 36px;
     color: rgb(236, 41, 106);
     text-align: center;
@@ -449,27 +530,43 @@ img{
 }
 
 .credits{
-
     height: 8%;
     width: 100%;
-    display: flexbox;
+    display: block;
     align-items: center;
     align-content: space-evenly;
+    background-color: #0f031f86;
+    /* height: 8vh;
+    width: 100%;
+    display: block;
+    align-items:center;
+    border-top: 2px solid #1e053d;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    transition: 0.6s;
+    background-color: rgba(62, 14, 94, 0.815); */
 }
 
 .creditsTitle{
-    font-size: 36px;
+    font-size: 32px;
     color: rgb(241, 238, 239);
     text-align: center;
     text-shadow: 2px 3px 5px #161616b2;
     margin: auto;
+    padding-top: 1%;
     width: 100%;
+    height: 40%;
 }
 
 .creditsSocial{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 35%;
     margin: auto;
 }
 
@@ -485,13 +582,12 @@ img{
     width: auto;
     font-size: 20px;
     background-color: transparent;
-    border:3px solid black;
+    border:3px solid rgb(255, 255, 255);
     border-radius: 4px;
     padding:1%;
 }
 
 .socialBtnText{
-
     margin: auto;
     text-align: center;
     font-size: 30px;
@@ -501,22 +597,23 @@ img{
 }
 
 .socialImg{
-
     height: auto;
     width: 40px;
     padding: 1%;
 }
 
 .copyrightContainer{
-
     display: flex;
+    height: 15%;
+    margin:auto;
+    margin-top:1%
 }
 
 .copyrightText{
     width: 49%;
     margin: auto;
     margin-right:1%;
-    text-align: right;
+    text-align: center;
     font-size: 16px;
     font-weight: bolder;
     padding-left: 15px;
@@ -524,16 +621,16 @@ img{
 }
 
 .impressumsLink{
-
+    text-decoration: none;
     width: 49%;
-    text-align: left;
+    text-align: center;
     margin: auto;
     margin-left:1%
 }
 
 
 
-
+/*Loading animation*/
 .lds-spinner {
     position: absolute;
     margin-left: 47.5%;
@@ -614,7 +711,7 @@ img{
     }
   }
 
-
+/*Background animation*/
 @keyframes sf-fly-by-1 {
     from {
         transform: translateZ(-600px);
