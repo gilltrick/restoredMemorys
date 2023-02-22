@@ -42,12 +42,12 @@ def uploadImage():
             return render_template("index.html", disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg")
         return render_template("index.html", result=False, uploadedImage = False)
     except:
+        print("BOOOBEARRY")
         id = CreateRandomId()
         userIdList.append(id)
         response = make_response(render_template("index.html", isx=True, disableRestoreMemory=False, result=False, uploadedImage = True, imagePath=path+id+".jpg"))
         response.set_cookie("data", id, max_age=60 * 60 * 1)
         imageFile = request.files["image"]
-        print(imageFile.filename)
         fileExtension = re.search("(.{3})\s*$", imageFile.filename)
         if fileExtension.group(1) in acceptedFileExtensions:
             imageFile.save(os.getcwd()+path+id+".jpg")
